@@ -5,6 +5,12 @@ const { asyncMiddleware, asyncResponse } = require('../middlewares/async');
 const userController = require('../controllers/user');
 const userValidate = require('../validations/user');
 
+router.get(
+  '/user/my_info',
+  asyncMiddleware(auth),
+  asyncResponse(userController.getUserProfile),
+)
+
 router.put(
   '/users/me/info',
   asyncMiddleware(auth),

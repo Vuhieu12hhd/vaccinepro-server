@@ -2,7 +2,7 @@ const userService = require('../services/user');
 
 // me
 const updateMe = async (req) => userService.updateUser(req.user.id, req.body);
-
+const getUserProfile = async (req) => userService.getUserById(req.user.id);
 const requestVerifyEmail = async (req) => userService.requestVerifyEmail(req.requestId, req.user);
 const confirmVerifyEmail = async (req) => userService.confirmVerifyEmail(req.user, req.body);
 
@@ -20,7 +20,7 @@ const deleteUserByAdmin = async (req) => userService.deleteUser(req.params.userI
 
 module.exports = {
   updateMe,
-
+  getUserProfile,
   requestVerifyEmail,
   confirmVerifyEmail,
 
